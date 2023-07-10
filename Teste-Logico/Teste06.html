@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Obtenha Um Conjunto de Números em Ordem Crescente</title>
+  <script>
+    function lerNumerosEOrdenar() {
+      // Leitura dos seis números
+      let numeros = [];
+      for (let i = 1; i <= 6; i++) {
+        let numero = parseFloat(prompt(`Digite a opção de número ${i}:`));
+        numeros.push(numero);
+      }
+
+      // Ordenação dos números em ordem crescente
+      numeros.sort(function(a, b) {
+        return a - b;
+      });
+
+      // Impressão dos números em ordem crescente
+      let resultado = "Números em ordem crescente: ";
+      for (let i = 0; i < numeros.length; i++) {
+        resultado += numeros[i] + " ";
+      }
+
+      // Exibição dos resultados na página
+      document.getElementById("numerosOrdenados").innerHTML = resultado;
+    }
+  </script>
+</head>
+<body>
+  <h1>Números Aleatórios em Ordem Crescente</h1>
+  <button onclick="lerNumerosEOrdenar()">Ler e Ordenar Números</button>
+  <div id="numerosOrdenados"></div>
+</body>
+</html>

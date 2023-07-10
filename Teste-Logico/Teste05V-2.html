@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Estatísticas de Números</title>
+  <script>
+    function calcularEImprimirEstatisticas() {
+      // Leitura da entrada
+      let entrada = document.getElementById("numeros").value;
+      let numeros = entrada.split(" ").map(Number);
+
+      // Verifica se a entrada possui 100 números
+      if (numeros.length !== 100) {
+        document.getElementById("resultado").innerHTML = "A entrada deve conter exatamente 100 números.";
+        return;
+      }
+
+      // Declaração de variáveis
+      let soma = 0;
+      let maior = Number.MIN_SAFE_INTEGER;
+      let menor = Number.MAX_SAFE_INTEGER;
+
+      // Cálculo das estatísticas
+      for (let i = 0; i < numeros.length; i++) {
+        let numero = numeros[i];
+
+        // Verifica se o número é o maior ou o menor
+        if (numero > maior) {
+          maior = numero;
+        }
+
+        if (numero < menor) {
+          menor = numero;
+        }
+
+        // Soma os números para o cálculo da média
+        soma += numero;
+      }
+
+      // Cálculo da média
+      let media = soma / numeros.length;
+
+      // Impressão dos resultados
+      document.getElementById("resultado").innerHTML =
+        "Maior número: " + maior + "<br>" +
+        "Menor número: " + menor + "<br>" +
+        "Média dos números: " + media;
+    }
+
+    function gerarNumerosAleatorios() {
+      let numeros = [];
+      for (let i = 0; i < 100; i++) {
+        let numero = Math.floor(Math.random() * 1000); // Gera números aleatórios entre 0 e 999
+        numeros.push(numero);
+      }
+      document.getElementById("numeros").value = numeros.join(" ");
+    }
+  </script>
+</head>
+<body>
+  <h1>Estatísticas de Números</h1>
+  <label for="numeros">Digite os 100 números separados por espaço:</label>
+  <br>
+  <textarea id="numeros" rows="10" cols="50"></textarea>
+  <br>
+  <button onclick="gerarNumerosAleatorios()">1. Gerar Números Aleatórios</button>
+  <button onclick="calcularEImprimirEstatisticas()">2. Calcular</button>
+  
+  <div id="resultado"></div>
+</body>
+</html>
