@@ -19,8 +19,6 @@ d. Botão de exclusão para o CONTATO SELECIONADO;
 
 3. Classifique o Teste que terminou de realizar. Comente o porquê de sua resposta.
 
-***MODELO DE TABELA NO PDF***
-
 
 
 ________________________________________________________________________________________________________________
